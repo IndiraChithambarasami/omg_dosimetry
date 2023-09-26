@@ -1,6 +1,6 @@
 """This module holds classes for image loading and manipulation.
     Adapted from pylinac.core.image for multichannel format support
-    by Jean-François Cabana.
+    by Jean-François Cabana and Luis Olivares J.
 
 """
 import copy
@@ -9,7 +9,6 @@ from datetime import datetime
 from io import BytesIO
 import os.path as osp
 import os
-import imageio
 
 import pydicom
 from pydicom.errors import InvalidDicomError
@@ -21,11 +20,9 @@ from skimage.transform import rotate
 import scipy.ndimage.filters as spf
 
 from pylinac.core.utilities import is_close
-# from pylinac.core.decorators import type_accept, value_accept
 from pylinac.core.geometry import Point
 from pylinac.core.io import get_url, TemporaryZipDirectory, retrieve_filenames
 from pylinac.core.profile import stretch as stretcharray
-from pylinac.settings import get_dicom_cmap
 
 from tifffile import TiffFile
 from pathlib import Path
@@ -148,7 +145,7 @@ def load(path, **kwargs):
     --------
     Load an image from a file and then apply a filter::
 
-        >>> from pylinac.core.image import load
+        >>> from omg_dosimetry.imageRGB import load
         >>> my_image = "C:\QA\image.tif"
         >>> img = load(my_image)  # returns a FileImage
         >>> img.filter(5)
@@ -158,6 +155,7 @@ def load(path, **kwargs):
         >>> arr = np.arange(36).reshape(6, 6)
         >>> img = load(arr)  # returns an ArrayImage
     """
+
     if isinstance(path, BaseImage):
         return path
 #    print(path)
@@ -1177,6 +1175,3 @@ def load_folder(path):
         img = load_multiples(file_list)
         img_list.append(img)
     return img_list
-
-
-
