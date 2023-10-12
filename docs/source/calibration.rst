@@ -40,7 +40,7 @@ Define the folder containing the scanned tiff images, and the nominal doses [cGy
     my_path = Path(r"C:/my/folder")
     doses = [0.0, 100.0, 200.0, 400.0, 650.0, 950.0]
 
-If you don't have an image you can load the demo images:
+Load the demo images, if you don't have an image:
 
 .. code-block:: python
 
@@ -53,7 +53,7 @@ Produce the LUT
 
     lut = LUT(my_path, doses, crop_top_bottom = 650) # Crop needed because an unwanted border
 
-To display films and ROIs used for calibration
+Display films and ROIs used for calibration
 
 .. code-block:: python
 
@@ -71,7 +71,7 @@ To display films and ROIs used for calibration
     lut = LUT(my_path, doses, crop_top_bottom = 650) # Crop needed because a glass on the scanner
     lut.plot_roi(show = True)
 
-To display a plot of the calibration curve and the fitted algebraic function
+Display a plot of the calibration curve and the fitted algebraic function
 
 .. code-block:: python
 
