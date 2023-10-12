@@ -33,11 +33,11 @@ Features
 
 - Automatically loads multiple images in a folder, average multiple copies of same image and stack different scans together.
 - Automatically detect films position and size, and define ROIs inside these films.
-- Daily output correction
-- Beam profile correction
-- Lateral scanner response correction
-- Save/Load LUt files
-- Publish PDF report
+- Daily output correction.
+- Beam profile correction.
+- Lateral scanner response correction.
+- Save/Load LUt files.
+- Publish PDF report.
 
 
 Film-to-dose module
